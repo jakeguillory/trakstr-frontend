@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchUnitedMerchs = async () => {
-      const response = await fetch("http://localhost:3001/united/");
+      const response = await fetch("http://64.226.85.122/united/");
       const json = await response.json();
 
       if (response.ok) {
@@ -21,8 +21,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h2>United Rewards Data</h2>
-      <div className="merchs">
+      <div className="merch-cards">
         {unitedMerchs &&
           unitedMerchs.map((merch) => (
             <MerchDetails merch={merch} key={merch._id} />

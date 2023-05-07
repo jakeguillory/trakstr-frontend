@@ -1,93 +1,256 @@
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
 /* google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
-/* layout */
+
 :root {
-  --primary: #1aac83;
-  --error: #e7195a;
+    /* colors */
+  --clr-sky: hsl(194, 100%, 90%);
+  --clr-sky-hov: hsl(194, 100%, 85%);
+
+  --clr-txt-accent: hsl(240, 64%, 20%);
+
+  --clr-united: hsl(240, 83%, 45%);
+
+  --clr-black: hsl(0, 0%, 0%);
+
+  --clr-gr-50: hsl(0, 0%, 5%);
+  --clr-gr-100: hsl(0, 0%, 10%);
+  --clr-gr-150: hsl(0, 0%, 15%);
+  --clr-gr-200: hsl(0, 0%, 20%);
+  --clr-gr-250: hsl(0, 0%, 25%);
+  --clr-gr-300: hsl(0, 0%, 30%);
+  --clr-gr-350: hsl(0, 0%, 35%);
+  --clr-gr-400: hsl(0, 0%, 40%);
+  --clr-gr-450: hsl(0, 0%, 45%);
+  --clr-gr-500: hsl(0, 0%, 50%);
+  --clr-gr-550: hsl(0, 0%, 55%);
+  --clr-gr-600: hsl(0, 0%, 60%);
+  --clr-gr-650: hsl(0, 0%, 65%);
+  --clr-gr-700: hsl(0, 0%, 70%);
+  --clr-gr-750: hsl(0, 0%, 75%);
+  --clr-gr-800: hsl(0, 0%, 80%);
+  --clr-gr-850: hsl(0, 0%, 85%);
+  --clr-gr-900: hsl(0, 0%, 90%);
+  --clr-gr-950: hsl(0, 0%, 95%);
+
+  --clr-white: hsl(0, 0%, 100%);
+
+  --clr-clgr-850: hsl(240, 23%, 85%);
+
+  /* font-families */
+  --ff-serif: "Bellefair", serif;
+  --ff-sans-normal: "Poppins", sans-serif;
+  --ff-sans-united: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    min-width: 0;
+    min-height: 0;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+
+
 body {
-  background: #f1f1f1;
-  margin: 0;
-  font-family: "Poppins";
+    background: var(--clr-white);
+    font-family: var(--ff-sans-normal);
+    color: var(--clr-gr-200);
+    line-height: 1.25;
+    min-height: 100vh;
 }
+
+/* make images easier to work with */
+img,
+picutre {
+    max-width: 100%;
+    display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------- */
+/* Components         */
+/* ------------------- */
+
+a {
+    text-decoration: none;
+    color: var(--clr-gr-300);
+}
+
 header {
-  background: #fff;
-}
-header .container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: right;
-}
-header a {
-  color: #333;
-  text-decoration: none;
-}
-.pages{
-  max-width: 1400px;
-  padding: 20px;
-  margin: 0 auto;
+    position:sticky;
+    top: 0;
+    background: var(--clr-sky);
+    margin: 0;
+    padding: .5em 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* homepage */
-
-/*
-.home {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
-}
-*/
-
-
-
-.data-details {
-  background: #fff;
-  border-radius: 4px;
-  margin: 20px auto;
-  padding: 20px;
-  position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-}
-.data-details h4 {
-  margin: 0 0 10px 0;
-  font-size: 1.2em;
-  color: var(--primary);
+.title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
 }
 
-.data-details a {
-  color: #333;
-  text-decoration: none;
+.search-box {
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    backdrop-filter: blur(8px);
 }
 
-.data-details p {
-  margin: 0;
-  font-size: 0.9em;
-  color: #555;
+.label-search {
+    max-width: 1400px;
+    padding: 1em 2em;
+    margin: 1em auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content:space-between;
+    gap: 1em;
 }
 
-.data-details ul {
-  list-style-type: none;
-  padding: 0;
+.btn-united {
+    font-family: var(--ff-sans-normal);
+    background: var(--clr-united);
+    color: var(--clr-gr-900);
+    font-size: .75rem;
+    padding: .5em;
+    border-radius: .25em;
+    font-weight: 600;
+    letter-spacing: .15rem;
 }
 
-.data-details li {
-  display: flex;
-  gap: 10px;
+.input {
+    width: 100%;
+    box-shadow: inset 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
-.data-details .date {
+.input:hover {
+  transform: scale(1.05);
+  box-shadow: inset 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
 
 
+.pages {
+    max-width: 1400px;
+    padding: 1em;
+    margin: 5em auto;
+    
+}
+.merch-cards {
+    margin-top: 2em;
+}
 
+.merch-card {
+    min-width: 200px;
+    max-width: 400px;
+    background: linear-gradient(-45deg, var(--clr-gr-900), var(--clr-white));
+    border-radius: .5em;
+    margin: .75em;
+    padding-top: .75em;
+    padding-bottom: .75em;
+    padding-left: .75em;
+    padding-right: .2em;
+    box-shadow: 0 8px 8px -4px rgb(0 0 0 / 0.2);
+    text-align: center;
+}
+
+.merch-card:hover {
+    background: var(--clr-gr-950);
+    transform: scale(1.01);
 
 }
 
-.data-details .price {
+.merch-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
 
-  font-weight: 900;
+.price {
+    margin-top: .2em;;
+    color: var(--clr-gr-200);
+    font-family: var(--ff-serif);
+    font-size: 3.5rem;
+    font-weight: 500;
+    letter-spacing: .02em;
+}
 
+.unit {
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: var(--ff-sans-normal);
+    color: var(--clr-gr-400);
+}
+
+@media screen and (min-width: 500px){
+    .merch-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1.5em;
+    }
+}
+
+@media screen and (min-width: 800px){
+    .merch-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 1.5em;
+    }
 }
