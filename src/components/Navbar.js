@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({ searchTerm, setSearchTerm }) => {
+
+
 
     return (
         <>  
@@ -11,7 +13,7 @@ const Navbar = () => {
         <div className="search-box">
             <div className="label-search">
                 <h3 className="btn-united">UNITED</h3>
-                <form action="" className="search"><input type="text" className="input" placeholder="Search" /></form>
+                <form action="" className="search"><input type="text" className="input" placeholder="searchTerm" onChange={ (e) => setSearchTerm(e.target.value) } /></form>
             </div>
         </div>
         </>

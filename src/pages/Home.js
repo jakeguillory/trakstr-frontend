@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 // Components
 import MerchDetails from "../components/MerchDetails";
 
-const Home = () => {
+const Home = ({ searchTerm }) => {
   const [unitedMerchs, setUnitedMerchs] = useState(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Home = () => {
     <div className="home">
       <div className="merch-cards">
         {unitedMerchs &&
-          unitedMerchs.map((merch) => (
+          unitedMerchs.filter(merch => merch.merchName.toLowerCase().includes(searchTerm.toLowerCase())).map((merch) => (
             <MerchDetails merch={merch} key={merch._id} />
           ))}
       </div>
