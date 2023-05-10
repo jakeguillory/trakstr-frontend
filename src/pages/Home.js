@@ -8,7 +8,7 @@ const Home = ({ searchTerm }) => {
 
   useEffect(() => {
     const fetchUnitedMerchs = async () => {
-      const response = await fetch("http://64.226.85.122/united/");
+      const response = await fetch("http://myliltestserver.com/api/united/");
       const json = await response.json();
 
       if (response.ok) {

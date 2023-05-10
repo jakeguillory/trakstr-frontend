@@ -12,7 +12,7 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
       <div className="search-box">
         <div className="label-search">
           <h3 className="btn-united">UNITED</h3>
-          <form action="" className="search">
+          <form action="" className="search" onSubmit={(e) => e.preventDefault()}>
             <input
               type="text"
               className="input"
