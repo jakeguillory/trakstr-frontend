@@ -11,28 +11,28 @@ const useFetch = (url) => {
         const abortCont = new AbortController();
 
         //Using setTimeout to simulate longer lag for designing waiting period
-        setTimeout(() => {
-            fetch(url, { signal: abortCont.signal })
-                .then(res => {
-                    if (!res.ok) {
-                        throw Error('could not fetch the data for that resource')
-                    }
-                    return res.json();
-                })
-                .then((data) => {
-                    setData(data);
-                    setIsPending(false);
-                    setError(null);
-                })
-                .catch(err => {
-                    if (err.name === 'AbortError') {
-                        console.log('fetch aborted');
-                    } else {
-                    setIsPending(false);
-                    setError(err.message);
-                    }
-                })
-        }, 1000);
+        
+        fetch(url, { signal: abortCont.signal })
+            .then(res => {
+                if (!res.ok) {
+                    throw Error('could not fetch the data for that resource')
+                }
+                return res.json();
+            })
+            .then((data) => {
+                setData(data);
+                setIsPending(false);
+                setError(null);
+            })
+            .catch(err => {
+                if (err.name === 'AbortError') {
+                    console.log('fetch aborted');
+                } else {
+                setIsPending(false);
+                setError(err.message);
+                }
+            })
+        
 
         return () => abortCont.abort();
 

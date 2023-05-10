@@ -247,6 +247,13 @@ header {
     color: var(--clr-gr-400);
 }
 
+.loading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 3em;
+    text-align: center;
+}
+
 @media screen and (min-width: 500px){
     .merch-cards {
         display: grid;
