@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar"
 
 function App() {
 
+  // Need to declare this state here for lifting up from NAV and passing to HOME
   const [searchTerm, setSearchTerm] = useState("")
 
   return (
