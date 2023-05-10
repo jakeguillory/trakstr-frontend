@@ -16,5 +16,5 @@ TRAKSTR: Application that consolidates reward data
 ## Technology used
 
 - React
-- Hosted on Digital Ocean Droplet
-- Nginx server
+- Hosted on Vercel
+
