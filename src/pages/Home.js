@@ -5,7 +5,7 @@ import MerchDetails from "../components/MerchDetails";
 
 const Home = ({ searchTerm }) => {
 
-  const { data: unitedMerchs, isPending, error } = useFetch('https://myliltestserver.com/api/united/');
+  const { data: unitedMerchs, isPending, error } = useFetch('http://localhost:3001/united/');
 
   return (
     <div className="home">
