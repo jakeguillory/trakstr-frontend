@@ -14,14 +14,14 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-        <div className="pages">
+        <main>
           <Routes>
             <Route
               path="/"
               element={<Home searchTerm={searchTerm} setSearchTerm={setSearchTerm} />}
             />
           </Routes>
-        </div>
+        </main>
       </BrowserRouter>
     </div>
   );
