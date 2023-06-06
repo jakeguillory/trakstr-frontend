@@ -8,17 +8,18 @@ import Navbar from "./components/Navbar"
 function App() {
 
   // Need to declare this state here for lifting up from NAV and passing to HOME
-  const [searchTerm, setSearchTerm] = useState("")
+  const [ searchTerm, setSearchTerm ] = useState("")
+  const [ hotDealsActive, setHotDealsActive ] = useState(false)
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <Navbar setSearchTerm={setSearchTerm} setHotDealsActive={setHotDealsActive}/>
         <main>
           <Routes>
             <Route
               path="/"
-              element={<Home searchTerm={searchTerm} setSearchTerm={setSearchTerm} />}
+              element={<Home searchTerm={searchTerm} hotDealsActive={hotDealsActive} />}
             />
           </Routes>
         </main>

@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 
-const Navbar = ({ searchTerm, setSearchTerm }) => {
+const Navbar = ({ setSearchTerm, setHotDealsActive }) => {
 
   const toggleDeals = () => {
     let hotDealsBtn = document.querySelector('#hot-deals')
     hotDealsBtn.classList.toggle("hot-deals-active")
+    if (hotDealsBtn.classList.contains("hot-deals-active")) setHotDealsActive(true)
   }
 
   return (

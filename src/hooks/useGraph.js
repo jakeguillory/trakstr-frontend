@@ -44,9 +44,18 @@ function arrayRange(start, stop, step) {
 }
 
 function getXPercentArray(priceArray) {
-    const n = priceArray.length - 1
-    const inc = xPercentRange / n
+    const length = priceArray.length - 1
+    const inc = xPercentRange / length
     return arrayRange(xMinPercent, xMaxPercent, inc).map(percent => percent * 100)
+}
+
+function isHotDeal(arr) {
+
+    const priceArray = getPriceArray(arr)
+    const current = priceArray[priceArray.length - 1]
+    const previous = priceArray[priceArray.length - 4]
+
+    return current > previous
 }
         
 function makePlotArray(rawData) {
@@ -55,24 +64,25 @@ function makePlotArray(rawData) {
     const dateArray = getDateArray(rawData)
     const xPercentArray = getXPercentArray(priceArray)
     const yPercentArray = getYPercentArray(priceArray)
+    let id = 0
     priceArray.forEach(price => {
         plotArray.push({
             price: price,
             date: dateArray.shift(),
             xPercent: xPercentArray.shift(),
-            yPercent: yPercentArray.shift()
+            yPercent: yPercentArray.shift(),
+            id: id++
         })
     })
     return plotArray
 }
 
-
-
 const useGraph = (prices) => {
 
     const plotArray = makePlotArray(prices)
+    const hotDealsActive = isHotDeal(prices)
 
-    return plotArray
+    return { plotArray, hotDealsActive }
 }
 
 export default useGraph;
