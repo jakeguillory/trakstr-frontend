@@ -9,7 +9,7 @@ function App() {
 
   // Need to declare this state here for lifting up from NAV and passing to HOME
   const [ searchTerm, setSearchTerm ] = useState("")
-  const [ hotDealsActive, setHotDealsActive ] = useState(false)
+  const [ hotDealsActive, setHotDealsActive ] = useState(null)
 
   return (
     <div className="App">

@@ -5,7 +5,7 @@ const Navbar = ({ setSearchTerm, setHotDealsActive }) => {
   const toggleDeals = () => {
     let hotDealsBtn = document.querySelector('#hot-deals')
     hotDealsBtn.classList.toggle("hot-deals-active")
-    if (hotDealsBtn.classList.contains("hot-deals-active")) setHotDealsActive(true)
+    return (hotDealsBtn.classList.contains("hot-deals-active")) ? setHotDealsActive(true) : setHotDealsActive(false)
   }
 
   return (

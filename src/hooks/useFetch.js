@@ -10,7 +10,6 @@ const useFetch = (url) => {
 
         const abortCont = new AbortController();
 
-        //Using setTimeout to simulate longer lag for designing waiting period
         
         fetch(url, { signal: abortCont.signal })
             .then(res => {

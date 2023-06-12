@@ -49,7 +49,7 @@ function getXPercentArray(priceArray) {
     return arrayRange(xMinPercent, xMaxPercent, inc).map(percent => percent * 100)
 }
 
-function isHotDeal(arr) {
+export function isHotDeal(arr) {
 
     const priceArray = getPriceArray(arr)
     const current = priceArray[priceArray.length - 1]
@@ -80,9 +80,10 @@ function makePlotArray(rawData) {
 const useGraph = (prices) => {
 
     const plotArray = makePlotArray(prices)
-    const hotDealsActive = isHotDeal(prices)
+    const hotDeal = isHotDeal(prices)
 
-    return { plotArray, hotDealsActive }
+    return { plotArray, hotDeal }
 }
+
 
 export default useGraph;
