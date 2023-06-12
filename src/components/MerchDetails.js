@@ -1,12 +1,13 @@
+// Hooks
+import useGraph from "../hooks/useGraph"
+
 // Components
 import Graph from "./Graph"
 
-// Hooks
-import useGraph from "../hooks/useGraph";
 
 const MerchDetails = ({ merch }) => {
 
-    const numBars = 12 //Number of bars on graph
+    const numBars = 12 // Number of bars on graph
     const { plotArray, hotDeal } = useGraph(merch.prices.slice(-numBars))
 
     return (

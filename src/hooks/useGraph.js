@@ -1,5 +1,11 @@
+/*
+ *  Function for creating data to plot sprakline chart.
+ *  Recieves data as price object from merchant
+ *  Outputs in format suitable for adding to HTML
+ */
 
-// define how much of parent element the graph should occupy
+// Constants
+// define how much of parent element the chart should occupy
 const yMinPercent = .2
 const yMaxPercent = .95
 const yPercentRange = yMaxPercent - yMinPercent
@@ -7,6 +13,7 @@ const xMinPercent = .05
 const xMaxPercent = .95
 const xPercentRange = xMaxPercent - xMinPercent
 
+// Helper Functions
 function getPriceArray(arr) {
     const newArray = [  ]
     arr.forEach(dataPoint => newArray.push(dataPoint.price))
@@ -49,8 +56,9 @@ function getXPercentArray(priceArray) {
     return arrayRange(xMinPercent, xMaxPercent, inc).map(percent => percent * 100)
 }
 
+// This function can be manipulated to determine what is a hot deal 
+// SHould return a boolean
 export function isHotDeal(arr) {
-
     const priceArray = getPriceArray(arr)
     const current = priceArray[priceArray.length - 1]
     const previous = priceArray[priceArray.length - 4]
@@ -77,6 +85,7 @@ function makePlotArray(rawData) {
     return plotArray
 }
 
+
 const useGraph = (prices) => {
 
     const plotArray = makePlotArray(prices)
@@ -86,4 +95,4 @@ const useGraph = (prices) => {
 }
 
 
-export default useGraph;
+export default useGraph

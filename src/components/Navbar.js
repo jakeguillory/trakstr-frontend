@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 const Navbar = ({ setSearchTerm, setHotDealsActive }) => {
 
@@ -35,4 +35,4 @@ const Navbar = ({ setSearchTerm, setHotDealsActive }) => {
   );
 };
 
-export default Navbar;
+export default Navbar
