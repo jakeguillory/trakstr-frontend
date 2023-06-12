@@ -30,6 +30,8 @@ TRAKSTR: Application that tracks reward data
 
 ## How To Use
 
+NOTE: Ensure all steps completed from [Trakstr-Scraper](https://github.com/jakeguillory/trakstr-scraper) and [Trakstr-API](https://github.com/jakeguillory/trakstr-api) repos
+
 NOTE: The instructions below were tested on Windows 11 running Ubuntu 22.04.2 on WSL with Node version 18.16.0
 
 1. **Ensure a recent NodeJS installation**
